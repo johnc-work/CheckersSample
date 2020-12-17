@@ -1,0 +1,13 @@
+<h1>Checkers</h1>
+
+<div>
+  <h3>{{statusMessage}}</h3>
+  <button id="resetBoard" ng-show="winState" (click)="initializeBoard()">Reset</button>
+</div>
+<div class="boardContainer">
+  <div class="boardRow" *ngFor="let row of board">
+    <div *ngFor="let space of row" class="{{pieceKey[space.state]}} {{space.possible === true ? 'possibleMove ' : ''}}boardSpace" (click)="playerClick(space.wpos, space.hpos)">
+      {{space.king ? 'K' : '' }} &nbsp;
+    </div>
+  </div>
+</div>
